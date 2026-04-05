@@ -1,0 +1,28 @@
+<canvas id ="wolfram" width="1000" height="1000"></canvas>
+<script>
+m=document.getElementById("wolfram").getContext("2d");
+atom=function(x,y,c){m.fillStyle="black";m.fillRect(x,y,1,1)}
+for(y=1;y<1000;y++){
+     for(x=1;x<1000;x++){
+         let cx = (x / 1000) * 3.5 - 2.5; // maps x from [0,1000] → [-2.5,1]
+         let cy = (y / 1000) * 3 - 1.5;   // maps y from [0,1000] → [-1.5,1.5]
+         let a = 0, b = 0;
+
+         a=dx;
+         b=dy;
+
+         for(t = 0; t < 100; t++) {
+         let aa = a * a - b * b + cx;
+         let bb = 2 * a * b + cy;
+         a = aa;
+         b = bb;
+              if (a * a + b * b > 4) {
+                atom(x, y, "rgb(" + (t * 5) + "," + (t * 2) + "," + (255 - t * 2) + ")");break
+            }
+  
+
+         
+         }
+    }
+}
+</script>
